@@ -17,8 +17,25 @@ function throwErrorIfNegative(x) {
   return x
 }
 
+function multi(x,y){
+  if(x<0||y<0){
+    throw new Error('음수는 안되요')
+  }
+  return x*y
+}
+
+function multiAsync(x,y){
+  return new Promise(resolve => {
+    setTimeout(()=>{
+      resolve(x*y)
+    },100)
+  })
+}
+
 module.exports = {
   addSync,
   addAsync,
-  throwErrorIfNegative
+  throwErrorIfNegative,
+  multi,
+  multiAsync
 }

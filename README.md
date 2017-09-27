@@ -13,4 +13,14 @@
 - [Testability]를 높이기 위한 [의존성 주입](https://ko.wikipedia.org/wiki/%EC%9D%98%EC%A1%B4%EC%84%B1_%EC%A3%BC%EC%9E%85)과 [Sinon](http://sinonjs.org/)
 - [지속적인 통합](https://ko.wikipedia.org/wiki/%EC%A7%80%EC%86%8D%EC%A0%81_%ED%86%B5%ED%95%A9) & [Travis CI](https://travis-ci.org/)
 
-> assert : ok = true나 false로 간주되는 것들을 표현
+> assert : ok = true나 false로 간주되는 것들을 표현 / 에러를 내주는 역할
+
+> assert.equal(3,3) = 맞으면 지나가고, 틀리면 에러를 표출 ==를 이용해서 비교.
+> 타입체크까지 하고 싶다면 strictEqual()을 사용
+> 객체의 depth내용까지 비교하려면 deepEqual 혹은 deepStrictEqual을 사용
+> assert.throws(() => {throw new Error()}) : 함수를 인자로 받아서 에러가 잘나는지를 테스트할 때! 즉, 에러코드가 잘 에러를 검출하는지를 검사
+
+```javascript
+assert.throws(()=>{throw new MyError(), MyError})
+//프로토타입까지 거슬러 올라가서 생각해주어야한다.
+```

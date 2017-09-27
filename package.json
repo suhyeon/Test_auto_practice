@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "@slack/client": "^3.13.0",
+    "assert": "^1.4.1",
     "body-parser": "^1.18.2",
     "dotenv": "^4.0.0",
     "express": "^4.15.5",

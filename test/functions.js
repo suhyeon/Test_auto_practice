@@ -3,7 +3,9 @@ const assert = require('assert')
 const {
   addAsync,
   addSync,
-  throwErrorIfNegative
+  throwErrorIfNegative,
+  multi,
+  multiAsync
 } = require('../src/functions')
 
 describe('functions', function () {
@@ -36,6 +38,23 @@ describe('functions', function () {
     it('기본 기능 (async/await)', async function() {
       const result = await addAsync(1, 2)
       assert.equal(result, 3)
+    })
+  })
+
+  describe('multi', function(){
+    it('기본 기능 (multi)', function(){
+      const result = multi(1,2)
+      assert.equal(result,2)
+    })
+  })
+
+  describe('multiAsync', function(){
+    it('기본기능(멀티 던)', function(done){
+      multiAsync(1,2)
+        .then(result => {
+          assert.equal(result,2)
+          done()
+        })
     })
   })
 
